@@ -1,4 +1,4 @@
-# 🔍 RepoXray
+# 🔍 RepoXra
 
 ## Dependency Risk & Resilience Intelligence Platform
 
