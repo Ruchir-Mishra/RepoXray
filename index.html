@@ -12,15 +12,11 @@
 </head>
 <body>
 
-  <!-- Top Navigation Bar -->
+  <!-- Top Navigation Header -->
   <header class="navbar">
     <div class="nav-left">
-      <a href="index.html" class="nav-brand-link" style="display: flex; align-items: center; gap: 0.5rem; text-decoration: none;">
-        <svg class="nav-logo-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-          <polyline points="2 17 12 22 22 17"></polyline>
-          <polyline points="2 12 12 17 22 12"></polyline>
-        </svg>
+      <a href="index.html" class="nav-brand-link">
+        <img src="logo.png" alt="RepoXray Logo" class="nav-logo-icon" />
         <span class="brand-name">RepoXray</span>
       </a>
     </div>
@@ -29,20 +25,17 @@
         <span class="green-dot"></span>
         <span class="status-text">All systems operational</span>
       </div>
-      <!-- Links to other pages -->
       <a href="docs.html" class="nav-link">Documentation</a>
       <a href="contact.html" class="nav-link">Contact SecOps</a>
     </div>
   </header>
 
-  <!-- Main Login Card Container -->
+  <!-- Main Container -->
   <main class="main-container">
+    
+    <!-- Logo Box Above Card -->
     <div class="icon-header">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2">
-        <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
-        <polyline points="2 17 12 22 22 17"></polyline>
-        <polyline points="2 12 12 17 22 12"></polyline>
-      </svg>
+      <img src="logo.png" alt="RepoXray Logo" class="card-logo-img" />
     </div>
 
     <h1 class="title">Sign in to RepoXray</h1>
@@ -51,7 +44,7 @@
     <!-- Sign In Card -->
     <div class="login-card">
       
-      <!-- GitHub Auth -->
+      <!-- GitHub Button -->
       <button class="btn btn-github" onclick="handleLogin('github')">
         <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
           <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
@@ -59,7 +52,7 @@
         Continue with GitHub
       </button>
 
-      <!-- Google Auth -->
+      <!-- Google Button -->
       <button class="btn btn-secondary" onclick="handleLogin('google')">
         <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24">
           <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
@@ -94,7 +87,7 @@
         </button>
       </div>
 
-      <!-- Enterprise SSO -->
+      <!-- SAML / SSO Button -->
       <button class="btn btn-secondary" onclick="handleLogin('sso')">
         <svg class="btn-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.778-7.778zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"></path>
@@ -102,13 +95,13 @@
         Enterprise Single Sign-On (SAML / Okta)
       </button>
 
-      <!-- Terms & Privacy Links -->
+      <!-- Terms & Privacy Text -->
       <p class="terms-text">
         By signing in, you agree to our <a href="terms.html">Terms</a> and <a href="privacy.html">Privacy Policy</a>.
       </p>
     </div>
 
-    <!-- Security Information Badges -->
+    <!-- Security Badges -->
     <div class="security-badges">
       <span><strong class="check-mark">✓</strong> SOC2 Type II</span>
       <span class="dot-separator">•</span>
@@ -118,7 +111,7 @@
     </div>
   </main>
 
-  <!-- Footer Navigation -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer-left">
       © 2026 RepoXray Inc.

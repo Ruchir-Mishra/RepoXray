@@ -1,4 +1,4 @@
-/* CSS Reset & Global Settings */
+/* CSS Reset & Body Styling */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -15,7 +15,7 @@ body {
   justify-content: space-between;
 }
 
-/* Header Navigation Bar */
+/* Navbar */
 .navbar {
   display: flex;
   justify-content: space-between;
@@ -28,7 +28,19 @@ body {
 .nav-left {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+}
+
+.nav-brand-link {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+}
+
+.nav-logo-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
 }
 
 .brand-name {
@@ -68,7 +80,7 @@ body {
   color: #ffffff;
 }
 
-/* Main Container */
+/* Main Area */
 .main-container {
   display: flex;
   flex-direction: column;
@@ -78,9 +90,10 @@ body {
   flex-grow: 1;
 }
 
+/* Card Header Icon Box */
 .icon-header {
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
   background: rgba(15, 23, 42, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
@@ -88,6 +101,12 @@ body {
   align-items: center;
   justify-content: center;
   margin-bottom: 1.25rem;
+}
+
+.card-logo-img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
 }
 
 .title {
@@ -105,7 +124,7 @@ body {
   text-align: center;
 }
 
-/* Login Card Structure */
+/* Login Card */
 .login-card {
   background-color: #0d111a;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -119,7 +138,7 @@ body {
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
 }
 
-/* Button UI Styles */
+/* Buttons */
 .btn {
   display: flex;
   align-items: center;
@@ -164,7 +183,7 @@ body {
   flex: 1;
 }
 
-/* Divider Element */
+/* Divider */
 .divider {
   display: flex;
   align-items: center;
@@ -198,7 +217,7 @@ body {
   text-decoration: underline;
 }
 
-/* Footer Badges & Links */
+/* Security Badges */
 .security-badges {
   display: flex;
   align-items: center;
@@ -216,6 +235,7 @@ body {
   color: #334155;
 }
 
+/* Footer */
 .footer {
   display: flex;
   justify-content: space-between;
@@ -233,7 +253,7 @@ body {
 .footer-right a {
   color: #475569;
   text-decoration: none;
-  transition: color 0.2s;
+  transition: color 0.2s ease;
 }
 
 .footer-right a:hover {
