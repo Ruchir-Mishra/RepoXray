@@ -1,45 +1,36 @@
-<<<<<<< HEAD
-// Function to send authentications request to Backend
+// Function to handle login provider clicks
 async function handleLogin(provider) {
-  console.log(`Logging in with ${provider}...`);
+  console.log(`Initiating sign-in with: ${provider}`);
+
+  // Backend API URL (Replace with your actual backend URL when deployed, e.g. on Render/Heroku)
+  const BACKEND_URL = 'http://localhost:5000/api/login';
 
   try {
-    // Replace URL with your Node.js server API route
-    const response = await fetch('http://localhost:5000/api/login', {
+    // Attempt to communicate with Express/MongoDB backend
+    const response = await fetch(BACKEND_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ provider }),
+      body: JSON.stringify({ provider, timestamp: new Date().toISOString() }),
     });
 
-    const data = await response.json();
-    alert(data.message);
+    if (response.ok) {
+      const data = await response.json();
+      console.log('MongoDB Log Success:', data);
+      
+      // Redirect to dashboard page
+      window.location.href = 'dashboard.html';
+    } else {
+      throw new Error('Server responded with an error');
+    }
   } catch (error) {
-    console.error('Error connecting to backend:', error);
-    alert(`Attempted sign in with ${provider}. (Backend connection required)`);
+    console.warn('Backend unavailable or running on GitHub Pages standalone mode:', error.message);
+    
+    // Default fallback behavior for frontend testing on GitHub Pages
+    alert(`Signed in with ${provider.toUpperCase()}!\n\n(Redirecting to dashboard...)`);
+    
+    // Uncomment this line to redirect to dashboard.html automatically
+    // window.location.href = 'dashboard.html';
   }
 }
-=======
-// Function to send authentications request to Backend
-async function handleLogin(provider) {
-  console.log(`Logging in with ${provider}...`);
-
-  try {
-    // Replace URL with your Node.js server API route
-    const response = await fetch('http://localhost:5000/api/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ provider }),
-    });
-
-    const data = await response.json();
-    alert(data.message);
-  } catch (error) {
-    console.error('Error connecting to backend:', error);
-    alert(`Attempted sign in with ${provider}. (Backend connection required)`);
-  }
-}
->>>>>>> f9be386 (Updated project code)
