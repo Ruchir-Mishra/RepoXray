@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RepoXray</title>
+    <!-- Use Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <!-- Interactive Background -->
+    <div id="ambient-background"></div>
+
+    <main class="app-container">
+      <div class="content-wrapper glass-panel">
+        
+        <div class="hero-section">
+          <h2 class="hero-subtitle">Welcome to</h2>
+          <h1 class="hero-title">RepoXray</h1>
+        </div>
+
+        <div class="actions-section">
+          <button id="signup-btn" class="primary-btn">Sign up</button>
+          
+          <div class="secondary-action">
+            <span class="muted-text">Already a member?</span>
+            <button id="login-btn" class="secondary-btn">Login</button>
+          </div>
+        </div>
+
+      </div>
+
+      <footer class="footer">
+        <div class="divider"></div>
+        <a href="/" class="repo-logo-btn" id="brand-logo">
+          <span class="logo-text">Repo</span><span class="logo-x">X</span><span class="logo-text">ray</span>
+        </a>
+      </footer>
+    </main>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
