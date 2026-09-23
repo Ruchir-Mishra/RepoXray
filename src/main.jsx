@@ -1,9 +1,19 @@
 import './style.css';
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+import { HeroHeading } from './HeroHeading.jsx';
 
 document.addEventListener('DOMContentLoaded', () => {
   initAmbientBackground();
   initRouting();
   initLogoInteraction();
+  
+  // Mount React Hero Heading
+  const heroRoot = document.getElementById('hero-react-root');
+  if (heroRoot) {
+    const root = createRoot(heroRoot);
+    root.render(<HeroHeading />);
+  }
 });
 
 function initAmbientBackground() {
