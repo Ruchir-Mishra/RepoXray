@@ -34,53 +34,49 @@ Repo X-Ray supports three distinct methods for repository analysis:
 
 ## System Architecture & Workflow
 
-```mermaid
-graph TD
-    subgraph Inputs ["USER INPUT METHODS"]
-        A1[GitHub Public URL]
-        A2[ZIP File Upload]
-        A3[GitHub OAuth]
-    end
+## System Architecture & Workflow
 
-    subgraph Backend ["EXPRESS.JS BACKEND ROUTER"]
-        B1[GitHub API Module]
-        B2[Multer Parser]
-        B3[OAuth Module]
-    end
-
-    subgraph Engine ["DATA PROCESSING ENGINE"]
-        C1["1. Metadata Aggregation<br>(Stars, Forks, Language, License)"]
-        C2["2. Activity Processing<br>(Commits, PRs, Code Frequency)"]
-        C3["3. Manifest Parsing<br>(package.json / Dependency Mapping)"]
-    end
-
-    subgraph Cleanup ["TEMPORARY CLEANUP & RESPONSE"]
-        D1["• Purge extracted ZIP files / Temporary server memory"]
-        D2["• Formulate Unified JSON Response Structure"]
-    end
-
-    subgraph UI ["FRONTEND DASHBOARD (UI)"]
-        E1["• Render Repo Summary, Commits, PRs, Contributors & Activity"]
-        E2["• Render Interactive Dependency Tree Visualization"]
-    end
-
-    A1 --> B1
-    A2 --> B2
-    A3 --> B3
-
-    B1 --> C1
-    B1 --> C2
-    B2 --> C3
-    B3 --> C1
-
-    C1 --> Cleanup
-    C2 --> Cleanup
-    C3 --> Cleanup
-
-    Cleanup --> UI
-
-
-
+```text
++-------------------------------------------------------------------+
+|                        USER INPUT METHODS                         |
+|  +-------------------+   +-----------------+   +---------------+  |
+|  | GitHub Public URL |   | ZIP File Upload |   | GitHub OAuth  |  |
+|  +---------+---------+   +--------+--------+   +-------+-------+  |
++------------|----------------------|--------------------|----------+
+             |                      |                    |
+             v                      v                    v
++-------------------------------------------------------------------+
+|                      EXPRESS.JS BACKEND ROUTER                    |
+|  +-------------------+   +-----------------+   +---------------+  |
+|  | GitHub API Module |   | Multer Parser   |   | OAuth Module  |  |
+|  +---------+---------+   +--------+--------+   +-------+-------+  |
++------------|----------------------|--------------------|----------+
+             |                      |                    |
+             +------------------+   |   +----------------+
+                                |   |   |
+                                v   v   v
++-------------------------------------------------------------------+
+|                      DATA PROCESSING ENGINE                       |
+|  +-------------------------------------------------------------+  |
+|  |  1. Metadata Aggregation (Stars, Forks, Language, License)  |  |
+|  |  2. Activity Processing (Commits, PRs, Code Frequency)      |  |
+|  |  3. Manifest Parsing (package.json / Dependency Mapping)    |  |
+|  +------------------------------+------------------------------+  |
++---------------------------------|---------------------------------+
+                                  |
+                                  v
++-------------------------------------------------------------------+
+|                     TEMPORARY CLEANUP & RESPONSE                  |
+|  * Purge extracted ZIP files / Temporary server memory            |
+|  * Formulate Unified JSON Response Structure                      |
++---------------------------------|---------------------------------+
+                                  |
+                                  v
++-------------------------------------------------------------------+
+|                       FRONTEND DASHBOARD (UI)                     |
+|  * Render Repo Summary, Commits, PRs, Contributors & Activity     |
+|  * Render Interactive Dependency Tree Visualization               |
++-------------------------------------------------------------------+
 
 
 ## Data Security & Privacy
