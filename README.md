@@ -34,8 +34,6 @@ Repo X-Ray supports three distinct methods for repository analysis:
 
 ## System Architecture & Workflow
 
-## System Architecture & Workflow
-
 ```text
 +-------------------------------------------------------------------+
 |                        USER INPUT METHODS                         |
@@ -77,15 +75,4 @@ Repo X-Ray supports three distinct methods for repository analysis:
 |  * Render Repo Summary, Commits, PRs, Contributors & Activity     |
 |  * Render Interactive Dependency Tree Visualization               |
 +-------------------------------------------------------------------+
-
-+-------------------------------------------------------------------+
 ---
-## Data Security & Privacy
-
-Repo X-Ray processes repository files strictly within isolated, temporary server storage during active analysis sessions. Uploaded ZIP archives and extracted source code files are automatically purged immediately following data extraction to prevent unauthorized storage or exposure of repository code.
-
----
-
-## License
-
-This project is maintained for academic and educational purposes under the CSE2022 Web Programming course curriculum.
