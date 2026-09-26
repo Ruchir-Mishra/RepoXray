@@ -78,7 +78,8 @@ Repo X-Ray supports three distinct methods for repository analysis:
 |  * Render Interactive Dependency Tree Visualization               |
 +-------------------------------------------------------------------+
 
-
++-------------------------------------------------------------------+
+---
 ## Data Security & Privacy
 
 Repo X-Ray processes repository files strictly within isolated, temporary server storage during active analysis sessions. Uploaded ZIP archives and extracted source code files are automatically purged immediately following data extraction to prevent unauthorized storage or exposure of repository code.
