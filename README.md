@@ -1,4 +1,3 @@
-=======
 # Repo X-Ray
 
 ## Project Overview
