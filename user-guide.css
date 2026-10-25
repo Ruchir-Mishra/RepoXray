@@ -1,0 +1,419 @@
+/* RepoXray User Guide — responsive, isolated styles for the standalone page. */
+.ug-page,
+.ug-page * { box-sizing: border-box; }
+.ug-page {
+  --ug-bg: #081321;
+  --ug-header: #07101d;
+  --ug-panel: #111d2c;
+  --ug-panel-dark: #0c1725;
+  --ug-border: #1b2a3d;
+  --ug-text: #dce6f5;
+  --ug-muted: #93a3b9;
+  --ug-subtle: #71839d;
+  --ug-blue: #8cb4ff;
+  margin: 0;
+  min-height: 100vh;
+  background: var(--ug-bg);
+  color: var(--ug-text);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.ug-page a { color: inherit; text-decoration: none; }
+.ug-page button,
+.ug-page summary { font: inherit; }
+.ug-page button:focus-visible,
+.ug-page a:focus-visible,
+.ug-page summary:focus-visible { outline: 2px solid #78aaff; outline-offset: 3px; }
+
+/* Header: wider and more readable on large screens, wrapped cleanly in split-screen. */
+.ug-navbar {
+  width: 100%;
+  min-height: 68px;
+  border-bottom: 1px solid #1b2939;
+  background: var(--ug-header);
+}
+.ug-navbar-inner {
+  width: min(calc(100% - 64px), 1440px);
+  min-height: 68px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 20px;
+}
+.ug-brand { display: flex; align-items: center; gap: 10px; justify-self: start; min-width: 0; }
+.ug-logo { color: #edf3ff; font-size: 20px; font-weight: 750; letter-spacing: -.55px; white-space: nowrap; }
+.ug-version { padding: 2px 7px; border: 1px solid #29364a; border-radius: 4px; background: #152236; color: #a7b5c9; font-size: 11px; line-height: 1.5; white-space: nowrap; }
+.ug-nav { display: flex; align-items: center; justify-content: center; gap: 4px; padding: 4px; border: 1px solid #1b293b; border-radius: 7px; background: #0d1929; }
+.ug-nav-link { color: #9aa8bd; padding: 8px 15px; border-radius: 4px; font-size: 13px; font-weight: 550; white-space: nowrap; transition: color .16s ease, background .16s ease; }
+.ug-nav-link:hover { color: #eef4ff; }
+.ug-nav-link.is-active { color: #e8effc; background: #1b293d; box-shadow: inset 0 0 0 1px #2b3a50; }
+.ug-github { justify-self: end; display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 38px; padding: 0 15px; border: 1px solid #26364b; border-radius: 6px; background: #101b2b; color: #c2cee0; font-size: 13px; font-weight: 600; white-space: nowrap; transition: background .16s ease, border-color .16s ease; }
+.ug-github:hover { background: #1a2a40; border-color: #3b526f; }
+.ug-github svg { display: block; width: 16px; height: 16px; }
+
+/* Main canvas adapts to both regular and ultrawide Windows windows. */
+.ug-main { width: min(calc(100% - 64px), 1440px); margin: 0 auto; }
+.ug-page-intro { padding: clamp(28px, 4vh, 48px) 0 24px; }
+.ug-eyebrow { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0 0 8px; color: #8296b3; font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.ug-dot { color: #536780; }
+.ug-page-intro h1 { margin: 0; color: #e5edf9; font-size: clamp(28px, 2.5vw, 38px); font-weight: 700; letter-spacing: -1.1px; line-height: 1.2; }
+.ug-intro-copy { max-width: 780px; margin: 10px 0 0; color: #93a2b8; font-size: clamp(13px, 1.1vw, 16px); line-height: 1.65; }
+
+/* Desktop uses a true two-column page; the sidebar becomes a section bar in split-screen. */
+.ug-layout { display: grid; grid-template-columns: 250px minmax(0, 1fr); align-items: start; gap: clamp(20px, 2.2vw, 34px); padding: 0 0 48px; }
+.ug-sidebar { position: sticky; top: 18px; padding: 16px 12px 14px; border: 1px solid #172639; border-radius: 9px; background: #101c2b; }
+.ug-sidebar-label { margin: 0 0 10px 5px; color: #7f91aa; font-size: 10px; font-weight: 750; letter-spacing: .13em; }
+.ug-section-nav { display: flex; flex-direction: column; gap: 4px; }
+.ug-section-link { position: relative; display: flex; justify-content: space-between; align-items: center; gap: 10px; min-height: 42px; padding: 9px 11px; border-radius: 5px; color: #a8b6ca; font-size: 13px; font-weight: 550; transition: background .15s ease, color .15s ease; }
+.ug-section-link:hover { background: #16253a; color: #e2ebfa; }
+.ug-section-link.is-active { background: #1c2c43; color: #c0d3ff; }
+.ug-section-link.is-active::before { content: ""; position: absolute; top: 10px; bottom: 10px; left: -1px; width: 3px; border-radius: 2px; background: #5b8cff; }
+.ug-link-arrow { color: #95b9ff; font-size: 18px; opacity: 0; transform: translateX(-3px); transition: opacity .15s ease, transform .15s ease; }
+.ug-section-link.is-active .ug-link-arrow,
+.ug-section-link:hover .ug-link-arrow { opacity: 1; transform: translateX(0); }
+.ug-content { min-width: 0; }
+.ug-section { min-width: 0; scroll-margin-top: 24px; }
+.ug-section + .ug-section { margin-top: clamp(30px, 4vh, 46px); }
+.ug-section-kicker { margin: 0 0 4px; color: #8da8dc; font-size: 10px; font-weight: 750; letter-spacing: .16em; }
+.ug-section h2 { margin: 0; color: #dce6f5; font-size: clamp(21px, 1.65vw, 26px); font-weight: 680; letter-spacing: -.55px; line-height: 1.3; }
+.ug-section-description { margin: 6px 0 16px; color: #93a2b7; font-size: 13px; line-height: 1.6; }
+
+/* Getting-started cards: equal columns on desktop and natural-height cards on narrow screens. */
+.ug-step-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.ug-step-card { display: flex; flex-direction: column; min-width: 0; min-height: 174px; padding: 17px 17px 15px; border: 1px solid #1a2a3e; border-radius: 9px; background: #111e2d; }
+.ug-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 13px; }
+.ug-number { display: inline-flex; align-items: center; justify-content: center; min-width: 25px; height: 22px; padding: 0 5px; border-radius: 4px; background: #25344b; color: #b2c5e4; font-size: 11px; font-weight: 750; }
+.ug-card-top svg { width: 19px; height: 19px; stroke: #96a5ba; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.ug-step-card h3 { margin: 0 0 7px; color: #d9e4f5; font-size: 15px; font-weight: 650; line-height: 1.45; }
+.ug-step-card p { margin: 0; color: #9aa9bf; font-size: 12px; line-height: 1.7; }
+.ug-card-caption { display: block; margin-top: auto; padding-top: 14px; color: #7e91ac; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 10px; letter-spacing: .02em; }
+
+.ug-example-bar { display: flex; min-width: 0; align-items: center; justify-content: space-between; gap: 14px; margin-top: 14px; padding: 12px 14px; border: 1px solid #17273a; border-radius: 7px; background: #07101d; }
+.ug-example-label, .ug-example-actions { display: flex; min-width: 0; align-items: center; gap: 9px; }
+.ug-example-label { color: #96a6bd; font-size: 12px; flex-wrap: wrap; }
+.ug-example-label > svg { flex: 0 0 auto; width: 17px; height: 17px; stroke: #a2b6d7; fill: none; stroke-width: 1.5; }
+.ug-example-label code { min-width: 0; overflow-wrap: anywhere; padding: 4px 7px; border: 1px solid #223148; border-radius: 4px; background: #152235; color: #c0d0e8; font-size: 11px; }
+.ug-example-actions { flex: 0 0 auto; }
+.ug-public-tag { padding: 4px 7px; border-radius: 4px; background: #172437; color: #9aaac0; font-size: 10px; white-space: nowrap; }
+.ug-copy-btn { display: inline-flex; align-items: center; justify-content: center; gap: 5px; min-height: 30px; padding: 4px 9px; border: 1px solid #26364d; border-radius: 5px; background: #162338; color: #c0d0e8; font-size: 11px; cursor: pointer; }
+.ug-copy-btn:hover { background: #213650; }
+.ug-copy-btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+.ug-copy-status { min-height: 0; margin: 4px 0 0; color: #8db5ff; font-size: 11px; }
+.ug-copy-status:empty { display: none; }
+
+/* Metric explanation table */
+.ug-metric-table-wrap { width: 100%; overflow-x: auto; border: 1px solid #1a2a3e; border-radius: 8px; }
+.ug-metric-table { width: 100%; min-width: 450px; border-collapse: collapse; table-layout: fixed; background: #111e2d; }
+.ug-metric-table thead { background: #081321; }
+.ug-metric-table th { padding: 13px 16px; color: #8193ac; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 10px; font-weight: 650; letter-spacing: .11em; text-align: left; }
+.ug-metric-table th:first-child { width: 31%; }
+.ug-metric-table td { padding: 14px 16px; border-top: 1px solid #1d2a3b; color: #a4b1c4; font-size: 12px; line-height: 1.7; vertical-align: middle; }
+.ug-metric-name { display: inline-flex; align-items: center; gap: 8px; color: #a8c0f1; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 11px; }
+.ug-metric-name svg { flex: 0 0 auto; width: 16px; height: 16px; stroke: #8ca9df; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Expandable troubleshooting panels */
+.ug-accordion { display: flex; flex-direction: column; gap: 8px; }
+.ug-faq { overflow: hidden; border: 1px solid #17263a; border-radius: 7px; background: #111e2d; }
+.ug-faq summary { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 48px; padding: 11px 14px; color: #bdc9da; cursor: pointer; list-style: none; font-size: 13px; font-weight: 550; }
+.ug-faq summary::-webkit-details-marker { display: none; }
+.ug-faq-title { display: inline-flex; align-items: center; gap: 9px; }
+.ug-faq-title svg { flex: 0 0 auto; width: 17px; height: 17px; stroke: #91a4c0; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.ug-chevron { width: 16px; height: 16px; flex: 0 0 auto; stroke: #8799b3; fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; transition: transform .18s ease; }
+.ug-faq[open] .ug-chevron { transform: rotate(180deg); }
+.ug-faq[open] summary { color: #e0e9f8; border-bottom: 1px solid #1c2a3b; }
+.ug-faq > p { margin: 0; padding: 13px 16px 15px 42px; color: #9eacc0; font-size: 12px; line-height: 1.8; }
+.ug-faq p code { padding: 2px 4px; border-radius: 3px; background: #1c2b40; color: #c4d5f2; font-size: 11px; overflow-wrap: anywhere; }
+
+/* Footer remains in normal document flow for both short and tall displays. */
+.ug-footer { border-top: 1px solid #1a293a; background: #07101d; }
+.ug-footer-inner { width: min(calc(100% - 64px), 1440px); min-height: 76px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 16px 0; }
+.ug-footer-brand { min-width: 0; }
+.ug-footer-brand p { display: flex; flex-wrap: wrap; align-items: center; gap: 7px; margin: 0; color: #8797ad; font-size: 11px; }
+.ug-footer-brand strong { color: #c0ccde; font-weight: 650; }
+.ug-footer-separator { color: #50637e; }
+.ug-footer-brand .ug-footer-subtitle { margin-top: 4px; color: #6d7f98; font-size: 10px; }
+.ug-footer-nav { display: flex; flex: 0 0 auto; gap: 18px; }
+.ug-footer-nav a { color: #8f9fb7; font-size: 11px; }
+.ug-footer-nav a[aria-current="page"], .ug-footer-nav a:hover { color: #b3caff; }
+
+/* Smaller Windows split view / narrow desktop window. */
+@media (max-width: 1050px) {
+  .ug-navbar-inner, .ug-main, .ug-footer-inner { width: min(calc(100% - 40px), 1440px); }
+  .ug-layout { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .ug-sidebar { position: static; padding: 12px; }
+  .ug-sidebar-label { margin-bottom: 8px; }
+  .ug-section-nav { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; }
+  .ug-section-link { min-height: 42px; }
+  .ug-section-link.is-active::before { top: auto; right: 10px; bottom: 0; left: 10px; width: auto; height: 3px; }
+  .ug-section + .ug-section { margin-top: 32px; }
+}
+
+/* Tablets and split view: cards use two columns instead of getting cramped. */
+@media (max-width: 760px) {
+  .ug-navbar-inner, .ug-main, .ug-footer-inner { width: calc(100% - 36px); }
+  .ug-navbar-inner { grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto auto; gap: 8px 12px; padding: 12px 0; }
+  .ug-brand { grid-column: 1; grid-row: 1; }
+  .ug-nav { grid-column: 1 / -1; grid-row: 2; justify-self: stretch; width: 100%; }
+  .ug-nav-link { flex: 1 1 0; text-align: center; padding: 8px 10px; }
+  .ug-github { grid-column: 2; grid-row: 1; }
+  .ug-page-intro { padding: 28px 0 20px; }
+  .ug-page-intro h1 { font-size: clamp(27px, 4.5vw, 34px); }
+  .ug-layout { gap: 17px; }
+  .ug-section-nav { grid-template-columns: 1fr; gap: 4px; }
+  .ug-section-link { min-height: 40px; }
+  .ug-step-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ug-step-card { min-height: 155px; }
+  .ug-section + .ug-section { margin-top: 30px; }
+  .ug-example-bar { align-items: flex-start; }
+  .ug-example-label { align-items: flex-start; }
+  .ug-footer-inner { align-items: flex-start; flex-direction: column; gap: 12px; }
+}
+
+/* Phone-sized viewport or very narrow split-screen. */
+@media (max-width: 520px) {
+  .ug-navbar-inner, .ug-main, .ug-footer-inner { width: calc(100% - 28px); }
+  .ug-logo { font-size: 18px; }
+  .ug-version { font-size: 10px; }
+  .ug-github { min-height: 35px; padding: 0 10px; font-size: 12px; }
+  .ug-nav-link { padding: 8px 5px; font-size: 12px; }
+  .ug-page-intro { padding: 25px 0 18px; }
+  .ug-eyebrow { font-size: 9px; }
+  .ug-page-intro h1 { font-size: 28px; }
+  .ug-intro-copy { font-size: 13px; }
+  .ug-step-grid { grid-template-columns: 1fr; }
+  .ug-step-card { min-height: 0; padding: 16px; }
+  .ug-card-caption { margin-top: 12px; }
+  .ug-example-bar { flex-direction: column; gap: 12px; }
+  .ug-example-label { gap: 7px; }
+  .ug-example-actions { align-self: flex-end; }
+  .ug-metric-table { min-width: 420px; }
+  .ug-metric-table th { padding: 11px 10px; font-size: 9px; }
+  .ug-metric-table td { padding: 11px 10px; font-size: 11px; }
+  .ug-metric-name { gap: 5px; font-size: 10px; }
+  .ug-metric-name svg { width: 14px; height: 14px; }
+  .ug-faq summary { min-height: 46px; padding: 10px 12px; font-size: 12px; }
+  .ug-faq > p { padding: 12px; font-size: 11px; }
+  .ug-footer-brand p { font-size: 10px; }
+  .ug-footer-brand .ug-footer-subtitle { font-size: 9px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ug-page *, .ug-page *::before, .ug-page *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
+html { scroll-behavior: smooth; }
+
+/* Full-screen section layout: the sidebar links now take readers to one focused
+   section per viewport instead of showing the next section underneath it. */
+.ug-layout {
+  grid-template-columns: 282px minmax(0, 1fr);
+  gap: clamp(24px, 2.8vw, 46px);
+}
+.ug-sidebar {
+  top: 22px;
+  padding: 22px 14px 18px;
+  border-radius: 12px;
+}
+.ug-sidebar-label {
+  margin: 0 0 14px 8px;
+  font-size: 11px;
+}
+.ug-section-nav { gap: 7px; }
+.ug-section-link {
+  min-height: 52px;
+  padding: 12px 14px;
+  font-size: 15px;
+  border-radius: 7px;
+}
+.ug-link-arrow { font-size: 20px; }
+
+.ug-section {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100svh;
+  padding: 22px 0 28px;
+  scroll-margin-top: 0;
+}
+.ug-section + .ug-section { margin-top: 0; }
+.ug-section-kicker { margin-bottom: 8px; font-size: 12px; }
+.ug-section h2 {
+  font-size: clamp(27px, 2.15vw, 36px);
+  letter-spacing: -.8px;
+}
+.ug-section-description {
+  max-width: 900px;
+  margin: 10px 0 25px;
+  font-size: clamp(15px, 1.08vw, 17px);
+  line-height: 1.75;
+}
+.ug-step-grid { gap: 18px; }
+.ug-step-card {
+  min-height: clamp(220px, 29svh, 300px);
+  padding: 24px 22px 20px;
+  border-radius: 12px;
+}
+.ug-card-top { margin-bottom: 20px; }
+.ug-number { min-width: 29px; height: 25px; font-size: 12px; }
+.ug-card-top svg { width: 22px; height: 22px; }
+.ug-step-card h3 { margin-bottom: 10px; font-size: clamp(17px, 1.2vw, 20px); }
+.ug-step-card p { font-size: 15px; line-height: 1.85; }
+.ug-card-caption { padding-top: 20px; font-size: 12px; }
+
+.ug-example-bar {
+  gap: 18px;
+  margin-top: 20px;
+  padding: 17px 18px;
+  border-radius: 9px;
+}
+.ug-example-label { gap: 12px; font-size: 15px; }
+.ug-example-label > svg { width: 20px; height: 20px; }
+.ug-example-label code { padding: 7px 9px; font-size: 13px; }
+.ug-example-actions { gap: 10px; }
+.ug-public-tag { padding: 6px 9px; font-size: 12px; }
+.ug-copy-btn { min-height: 40px; padding: 7px 12px; gap: 7px; font-size: 14px; }
+.ug-copy-btn svg { width: 16px; height: 16px; }
+.ug-copy-status { font-size: 13px; }
+
+.ug-before-you-begin,
+.ug-reading-note,
+.ug-support-note {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  margin-top: 18px;
+  padding: 20px 22px;
+  border: 1px solid #20334b;
+  border-radius: 10px;
+  background: #0d1a2a;
+}
+.ug-before-icon {
+  display: grid;
+  flex: 0 0 28px;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  border: 1px solid #3a5d89;
+  border-radius: 50%;
+  color: #a8c8ff;
+  font-size: 16px;
+  font-weight: 750;
+}
+.ug-before-you-begin h3,
+.ug-support-note h3 {
+  margin: 0 0 6px;
+  color: #dce8fb;
+  font-size: 17px;
+}
+.ug-before-you-begin p,
+.ug-reading-note > p:not(.ug-reading-note-label),
+.ug-support-note p {
+  margin: 0;
+  color: #a4b5cc;
+  font-size: 14px;
+  line-height: 1.85;
+}
+.ug-before-you-begin code { padding: 2px 5px; border-radius: 4px; background: #1a2a40; color: #c6d9fb; overflow-wrap: anywhere; }
+.ug-reading-note { display: block; }
+.ug-reading-note-label {
+  margin: 0 0 8px;
+  color: #88a9e6;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: .12em;
+}
+.ug-section-bottom-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  margin-top: auto;
+  padding-top: clamp(26px, 6vh, 70px);
+}
+.ug-section-bottom-link > span:first-child,
+.ug-end-label {
+  color: #7186a5;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+.ug-section-bottom-link a,
+.ug-support-note a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 42px;
+  padding: 9px 13px;
+  border: 1px solid #263d5a;
+  border-radius: 7px;
+  background: #14243a;
+  color: #c1d5fb;
+  font-size: 14px;
+  font-weight: 600;
+  transition: background .16s ease, border-color .16s ease;
+}
+.ug-section-bottom-link a:hover,
+.ug-support-note a:hover { border-color: #41649a; background: #1b304b; }
+.ug-support-note { display: block; }
+.ug-support-note a { margin-top: 15px; }
+
+.ug-metric-table th { padding: 17px 20px; font-size: 11px; }
+.ug-metric-table th:first-child { width: 29%; }
+.ug-metric-table td { padding: 21px 20px; font-size: 15px; line-height: 1.8; }
+.ug-metric-name { gap: 10px; font-size: 13px; }
+.ug-metric-name svg { width: 19px; height: 19px; }
+.ug-metric-table-wrap { border-radius: 10px; }
+.ug-accordion { gap: 11px; }
+.ug-faq { border-radius: 9px; }
+.ug-faq summary { min-height: 60px; padding: 15px 18px; font-size: 16px; }
+.ug-faq-title { gap: 11px; }
+.ug-faq-title svg { width: 20px; height: 20px; }
+.ug-chevron { width: 18px; height: 18px; }
+.ug-faq > p { padding: 18px 22px 21px 50px; font-size: 14px; line-height: 1.9; }
+.ug-faq p code { font-size: 13px; }
+
+/* At narrower widths the jump menu becomes a compact top navigation. The
+   sections remain one-at-a-time, but grow naturally if their content wraps. */
+@media (max-width: 1050px) {
+  .ug-layout { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .ug-sidebar { position: sticky; top: 8px; z-index: 5; padding: 12px; }
+  .ug-sidebar-label { margin: 0 0 7px 5px; }
+  .ug-section-nav { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ug-section-link { min-height: 46px; padding: 10px 12px; font-size: 14px; }
+  .ug-section { padding-top: 18px; }
+  .ug-step-card { min-height: 220px; }
+  .ug-section + .ug-section { margin-top: 0; }
+}
+@media (max-width: 760px) {
+  .ug-section { min-height: 100svh; padding-top: 22px; padding-bottom: 24px; }
+  .ug-section h2 { font-size: clamp(26px, 5vw, 32px); }
+  .ug-section-description { margin-bottom: 18px; }
+  .ug-step-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+  .ug-step-card { min-height: 205px; padding: 18px; }
+  .ug-step-card p { font-size: 14px; }
+  .ug-example-bar { flex-direction: column; align-items: stretch; }
+  .ug-example-actions { align-self: flex-end; }
+  .ug-metric-table td { padding: 16px 14px; font-size: 13px; }
+  .ug-metric-table th { padding: 14px; }
+  .ug-metric-name { font-size: 12px; }
+  .ug-faq > p { padding-left: 18px; }
+}
+@media (max-width: 520px) {
+  .ug-section-nav { grid-template-columns: 1fr; }
+  .ug-sidebar { position: static; }
+  .ug-step-grid { grid-template-columns: 1fr; }
+  .ug-step-card { min-height: 0; }
+  .ug-example-label { flex-wrap: wrap; }
+  .ug-metric-table { min-width: 520px; }
+  .ug-section-bottom-link { align-items: stretch; flex-direction: column; }
+  .ug-section-bottom-link a { justify-content: center; }
+}
+@media (max-height: 650px) and (min-width: 1051px) {
+  .ug-section { min-height: 650px; }
+  .ug-section-bottom-link { padding-top: 30px; }
+}
