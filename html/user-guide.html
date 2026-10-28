@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>User Guide | RepoXray</title>
+
+    <!-- Shared design styles -->
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- User Guide-specific styles -->
+    <link rel="stylesheet" href="../css/user-guide.css">
+
+    <!-- User Guide interactions -->
+    <script src="../js/user-guide.js" defer></script>
+</head>
+
+<body class="guide-page">
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="site-header">
+
+        <a class="brand" href="index.html">
+            RepoXray
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+
+            <a class="nav-link" href="index.html">
+                Home
+            </a>
+
+            <a class="nav-link active"
+               href="user-guide.html"
+               aria-current="page">
+                User Guide
+            </a>
+
+            <a class="nav-link" href="about.html">
+                About
+            </a>
+
+        </nav>
+
+        <button
+            class="github-button"
+            id="github-button"
+            type="button">
+
+            <span aria-hidden="true">&lt; &gt;</span>
+            GitHub
+
+        </button>
+
+    </header>
+
+
+    <!-- ================= PAGE INTRODUCTION ================= -->
+
+    <main class="guide-main">
+
+        <section class="guide-intro">
+
+            <p class="guide-eyebrow">
+                USER GUIDE
+                <span aria-hidden="true">•</span>
+                DOCUMENTATION &amp; TROUBLESHOOTING
+            </p>
+
+            <h1 class="guide-title">
+                A practical guide to RepoXray.
+            </h1>
+
+            <p class="guide-description">
+                Learn how to analyze a repository, understand its
+                results, and resolve common issues.
+            </p>
+
+        </section>
+
+
+        <!-- ================= GUIDE LAYOUT ================= -->
+
+        <div class="guide-layout">
+
+            <!-- Mobile / Split-screen sidebar toggle -->
+
+            <button
+                class="guide-sidebar-toggle"
+                id="guide-sidebar-toggle"
+                type="button"
+                aria-expanded="false"
+                aria-controls="guide-sidebar">
+
+                <span aria-hidden="true">☰</span>
+                Guide sections
+
+            </button>
+
+
+            <!-- Sidebar -->
+
+            <aside
+                class="guide-sidebar"
+                id="guide-sidebar"
+                aria-label="User Guide sections">
+
+                <div class="sidebar-heading">
+                    USER GUIDE
+                </div>
+
+                <nav
+                    class="guide-sidebar-nav"
+                    id="guide-sidebar-nav"
+                    aria-label="Guide sections">
+
+                    <a
+                        class="guide-nav-link active"
+                        href="#getting-started"
+                        aria-current="location">
+
+                        <span>Getting Started</span>
+                        <span class="sidebar-arrow" aria-hidden="true">→</span>
+
+                    </a>
+
+                    <a
+                        class="guide-nav-link"
+                        href="#understanding-results">
+
+                        Understanding Results
+
+                    </a>
+
+                    <a
+                        class="guide-nav-link"
+                        href="#common-problems">
+
+                        Common Problems
+
+                    </a>
+
+                </nav>
+
+            </aside>
+
+
+            <!-- Mobile drawer backdrop -->
+
+            <button
+                class="guide-backdrop"
+                id="guide-backdrop"
+                type="button"
+                aria-label="Close guide navigation"
+                tabindex="-1">
+            </button>
+
+
+            <!-- ================= MAIN GUIDE CONTENT ================= -->
+
+            <div class="guide-content">
+
+
+                <!-- SECTION 1: GETTING STARTED -->
+
+                <section
+                    class="guide-section"
+                    id="getting-started"
+                    aria-labelledby="getting-started-title">
+
+                    <div class="section-heading">
+
+                        <p class="section-eyebrow">
+                            SECTION 01
+                        </p>
+
+                        <h2 id="getting-started-title">
+                            Getting Started
+                        </h2>
+
+                        <p class="section-description">
+                            Start with a public repository, submit its
+                            canonical GitHub URL, and use the available
+                            insights to understand how the project
+                            changes over time.
+                        </p>
+
+                    </div>
+
+
+                    <!-- Instruction cards -->
+
+                    <div class="guide-step-grid">
+
+
+                        <article class="guide-step-card">
+
+                            <div class="step-card-top">
+                                <span class="step-number">01</span>
+
+                                <span
+                                    class="step-icon"
+                                    aria-hidden="true">
+
+                                    ▢
+
+                                </span>
+                            </div>
+
+                            <h3>
+                                Copy Repository URL
+                            </h3>
+
+                            <p>
+                                Open the repository on GitHub and copy
+                                its main page URL from the browser
+                                address bar. Use the repository home
+                                page rather than an issue, pull request,
+                                file, or branch page.
+                            </p>
+
+                            <span class="step-label">
+                                Standard URL format
+                            </span>
+
+                        </article>
+
+
+                        <article class="guide-step-card">
+
+                            <div class="step-card-top">
+                                <span class="step-number">02</span>
+
+                                <span
+                                    class="step-icon"
+                                    aria-hidden="true">
+
+                                    ↪
+
+                                </span>
+                            </div>
+
+                            <h3>
+                                Enter the URL
+                            </h3>
+
+                            <p>
+                                Return to the RepoXray Home page, paste
+                                the full URL into the input field, and
+                                select Analyze Repository. Check that
+                                the owner and repository name are both
+                                present before submitting.
+                            </p>
+
+                            <span class="step-label">
+                                URL format validation
+                            </span>
+
+                        </article>
+
+
+                        <article class="guide-step-card">
+
+                            <div class="step-card-top">
+                                <span class="step-number">03</span>
+
+                                <span
+                                    class="step-icon"
+                                    aria-hidden="true">
+
+                                    ↗
+
+                                </span>
+                            </div>
+
+                            <h3>
+                                Review Results
+                            </h3>
+
+                            <p>
+                                When analysis completes, review the
+                                summary and available activity,
+                                contributor, commit, and code-frequency
+                                information. The metrics shown depend
+                                on the data returned by GitHub.
+                            </p>
+
+                            <span class="step-label">
+                                Repository metrics
+                            </span>
+
+                        </article>
+
+                    </div>
+
+
+                    <!-- Example repository URL -->
+
+                    <div class="example-repository">
+
+                        <div class="example-label">
+                            <span aria-hidden="true">›_</span>
+
+                            <span>
+                                Example repository URL:
+                            </span>
+                        </div>
+
+                        <code
+                            class="example-url"
+                            id="example-repository-url">
+
+                            https://github.com/facebook/react
+
+                        </code>
+
+                        <div class="example-actions">
+
+                            <span class="repository-type">
+                                Public Repo
+                            </span>
+
+                            <button
+                                class="copy-button"
+                                id="copy-example"
+                                type="button">
+
+                                <span aria-hidden="true">▢</span>
+                                <span id="copy-button-text">Copy</span>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Additional guidance -->
+
+                    <div class="guide-note">
+
+                        <span
+                            class="note-icon"
+                            aria-hidden="true">
+
+                            i
+
+                        </span>
+
+                        <div>
+
+                            <h3>
+                                Before you begin
+                            </h3>
+
+                            <p>
+                                RepoXray is intended for public GitHub
+                                repositories. Use the repository's main
+                                URL in the form
+                                <code>
+                                    https://github.com/owner/repository
+                                </code>.
+                                Private repositories and metrics that
+                                GitHub cannot currently provide may not
+                                be available for analysis.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Section navigation -->
+
+                    <div class="guide-pagination">
+
+                        <span></span>
+
+                        <a
+                            class="pagination-next"
+                            href="#understanding-results">
+
+                            Understanding Results
+                            <span aria-hidden="true">→</span>
+
+                        </a>
+
+                    </div>
+
+                </section>
+
+
+                <!-- SECTION 2: UNDERSTANDING RESULTS -->
+
+                <section
+                    class="guide-section"
+                    id="understanding-results"
+                    aria-labelledby="understanding-results-title">
+
+                    <div class="section-heading">
+
+                        <p class="section-eyebrow">
+                            SECTION 02
+                        </p>
+
+                        <h2 id="understanding-results-title">
+                            Understanding Your Results
+                        </h2>
+
+                        <p class="section-description">
+                            Learn what each repository metric represents,
+                            what information it provides, and how it can
+                            help you understand a project's development.
+                        </p>
+
+                    </div>
+
+
+                    <!-- Metrics table -->
+
+                    <div class="metrics-table-wrapper">
+
+                        <table class="metrics-table">
+
+                            <thead>
+                                <tr>
+                                    <th scope="col">METRIC</th>
+                                    <th scope="col">WHAT IT TELLS YOU</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+
+                                <tr>
+
+                                    <th scope="row">
+                                        <span aria-hidden="true">⌁</span>
+                                        Code Frequency
+                                    </th>
+
+                                    <td>
+                                        Shows how much code is added or
+                                        removed over time. It can help
+                                        highlight larger changes,
+                                        refactoring, or maintenance
+                                        activity.
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <th scope="row">
+                                        <span aria-hidden="true">ϟ</span>
+                                        Repository Activity
+                                    </th>
+
+                                    <td>
+                                        Shows how commit activity changes
+                                        over the selected period. This
+                                        helps you understand development
+                                        patterns and maintenance activity.
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <th scope="row">
+                                        <span aria-hidden="true">♧</span>
+                                        Contributors
+                                    </th>
+
+                                    <td>
+                                        Shows who has contributed to the
+                                        repository and, when available,
+                                        how contributions are distributed
+                                        across project collaborators.
+                                    </td>
+
+                                </tr>
+
+                                <tr>
+
+                                    <th scope="row">
+                                        <span aria-hidden="true">◷</span>
+                                        Commits
+                                    </th>
+
+                                    <td>
+                                        Shows commit history and, where
+                                        available, the number of commits
+                                        reported for the repository or
+                                        selected time window.
+                                    </td>
+
+                                </tr>
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+
+                    <!-- Interpretation note -->
+
+                    <div class="guide-note">
+
+                        <span
+                            class="note-icon"
+                            aria-hidden="true">
+
+                            i
+
+                        </span>
+
+                        <div>
+
+                            <h3>
+                                Interpreting the metrics
+                            </h3>
+
+                            <p>
+                                Metrics provide different perspectives
+                                on repository activity. A high commit
+                                count alone does not establish code
+                                quality, and a quiet period does not
+                                necessarily indicate that development
+                                has stopped.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="guide-pagination">
+
+                        <a
+                            class="pagination-previous"
+                            href="#getting-started">
+
+                            <span aria-hidden="true">←</span>
+                            Getting Started
+
+                        </a>
+
+                        <a
+                            class="pagination-next"
+                            href="#common-problems">
+
+                            Common Problems
+                            <span aria-hidden="true">→</span>
+
+                        </a>
+
+                    </div>
+
+                </section>
+
+
+                <!-- SECTION 3: COMMON PROBLEMS -->
+
+                <section
+                    class="guide-section"
+                    id="common-problems"
+                    aria-labelledby="common-problems-title">
+
+                    <div class="section-heading">
+
+                        <p class="section-eyebrow">
+                            SECTION 03
+                        </p>
+
+                        <h2 id="common-problems-title">
+                            Common Problems
+                        </h2>
+
+                        <p class="section-description">
+                            Find explanations and practical steps for
+                            resolving common problems when submitting
+                            or analysing a repository.
+                        </p>
+
+                    </div>
+
+
+                    <!-- Troubleshooting accordions -->
+
+                    <div class="troubleshooting-list">
+
+
+                        <details class="troubleshooting-item">
+
+                            <summary>
+                                <span aria-hidden="true">↗</span>
+
+                                <span>
+                                    Invalid repository URL
+                                </span>
+
+                                <span
+                                    class="accordion-arrow"
+                                    aria-hidden="true">
+
+                                    ⌄
+
+                                </span>
+                            </summary>
+
+                            <div class="troubleshooting-answer">
+
+                                <p>
+                                    Make sure the URL points to the
+                                    repository's main GitHub page.
+                                    A standard repository URL looks like:
+                                </p>
+
+                                <code>
+                                    https://github.com/owner/repository
+                                </code>
+
+                                <p>
+                                    Check that the owner and repository
+                                    name are present. Do not submit a URL
+                                    pointing to an issue, pull request,
+                                    file, or branch.
+                                </p>
+
+                            </div>
+
+                        </details>
+
+
+                        <details class="troubleshooting-item">
+
+                            <summary>
+                                <span aria-hidden="true">⌕</span>
+
+                                <span>
+                                    Repository not found
+                                </span>
+
+                                <span
+                                    class="accordion-arrow"
+                                    aria-hidden="true">
+
+                                    ⌄
+
+                                </span>
+                            </summary>
+
+                            <div class="troubleshooting-answer">
+
+                                <p>
+                                    Open the repository directly on
+                                    GitHub and check that it exists and
+                                    is publicly accessible. Confirm that
+                                    the repository owner's name and
+                                    repository name are spelled correctly.
+                                </p>
+
+                                <p>
+                                    Private, renamed, or deleted
+                                    repositories may not be available
+                                    to the current version of RepoXray.
+                                </p>
+
+                            </div>
+
+                        </details>
+
+
+                        <details class="troubleshooting-item">
+
+                            <summary>
+                                <span aria-hidden="true">ϟ</span>
+
+                                <span>
+                                    Analysis failed
+                                </span>
+
+                                <span
+                                    class="accordion-arrow"
+                                    aria-hidden="true">
+
+                                    ⌄
+
+                                </span>
+                            </summary>
+
+                            <div class="troubleshooting-answer">
+
+                                <p>
+                                    Check your internet connection and
+                                    try again. Some GitHub statistics
+                                    may be temporarily unavailable, and
+                                    API rate limits can affect requests.
+                                </p>
+
+                                <p>
+                                    If the problem continues, check the
+                                    error message shown by RepoXray.
+                                    Different failures may require
+                                    different solutions.
+                                </p>
+
+                            </div>
+
+                        </details>
+
+
+                    </div>
+
+
+                    <!-- Help note -->
+
+                    <div class="guide-note">
+
+                        <span
+                            class="note-icon"
+                            aria-hidden="true">
+
+                            ?
+
+                        </span>
+
+                        <div>
+
+                            <h3>
+                                Still having trouble?
+                            </h3>
+
+                            <p>
+                                Recheck the repository URL and try
+                                submitting it again. If your team has
+                                configured a project issue tracker,
+                                report persistent errors there with
+                                the repository URL and the displayed
+                                error message.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="guide-pagination">
+
+                        <a
+                            class="pagination-previous"
+                            href="#understanding-results">
+
+                            <span aria-hidden="true">←</span>
+                            Understanding Results
+
+                        </a>
+
+                        <a
+                            class="pagination-next"
+                            href="#getting-started">
+
+                            Back to Getting Started
+                            <span aria-hidden="true">↑</span>
+
+                        </a>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="site-footer">
+
+        <div class="footer-content">
+
+            <div class="footer-brand">
+
+                <p>
+                    <strong>© 2026 RepoXray</strong>
+                    <span aria-hidden="true">·</span>
+                    Repository insights for engineering teams.
+                </p>
+
+                <p class="footer-subtitle">
+                    Understand repository activity, commits,
+                    and contribution patterns.
+                </p>
+
+            </div>
+
+            <nav class="footer-nav" aria-label="Footer navigation">
+
+                <a href="index.html">Home</a>
+
+                <a href="user-guide.html">User Guide</a>
+
+                <a href="about.html">About</a>
+
+            </nav>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= GITHUB MODAL ================= -->
+
+    <!-- GitHub Sign-in Modal -->
+<dialog
+    class="github-dialog"
+    id="github-dialog"
+    aria-labelledby="github-dialog-title"
+>
+    <button
+        class="dialog-close"
+        id="dialog-close"
+        type="button"
+        aria-label="Close dialog"
+    >
+        &times;
+    </button>
+
+    <!-- GitHub Logo -->
+    <div class="github-mark" aria-hidden="true">
+        <svg
+            viewBox="0 0 24 24"
+            width="36"
+            height="36"
+            fill="currentColor"
+        >
+            <path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.54v-2.1c-3.1.67-3.75-1.31-3.75-1.31-.5-1.28-1.23-1.62-1.23-1.62-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15 1 1.7 2.62 1.2 3.26.91.1-.71.39-1.2.71-1.48-2.47-.28-5.07-1.24-5.07-5.5 0-1.22.44-2.21 1.15-2.99-.12-.28-.5-1.42.11-2.95 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.11-1.44 3.04-1.14 3.04-1.14.61 1.53.23 2.67.12 2.95.72.78 1.15 1.77 1.15 2.99 0 4.27-2.61 5.21-5.09 5.49.4.34.75 1.02.75 2.06v3.07c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"/>
+        </svg>
+    </div>
+
+    <h2 id="github-dialog-title">
+        Sign in with GitHub
+    </h2>
+
+    <p>
+        Connect your GitHub account to quickly explore your
+        public repositories and generate automated analytics.
+    </p>
+
+    <a
+        class="dialog-action"
+        href="https://github.com/login"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        <span>Sign in</span>
+
+        <svg
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+        >
+            <path d="M10 17l5-5-5-5"/>
+            <path d="M15 12H3"/>
+            <path d="M12 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-6"/>
+        </svg>
+    </a>
+</dialog>
+
+</body>
+</html>

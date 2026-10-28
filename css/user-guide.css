@@ -1,0 +1,1332 @@
+/* ==========================================
+   RepoXray — User Guide
+   Shared theme: black, blue and cyan
+   ========================================== */
+
+.guide-page {
+    --guide-panel: #101722;
+    --guide-panel-hover: #152238;
+    --guide-border: #202c3d;
+    --guide-text: #f1f5f9;
+    --guide-muted: #9eacc0;
+    --guide-blue: #3b82f6;
+
+    min-height: 100vh;
+    color: var(--guide-text);
+
+    /* Match the Home page background */
+    background-color: #05070c;
+
+    background-image:
+        radial-gradient(
+            ellipse 48% 42% at 12% 18%,
+            rgba(15, 58, 135, 0.22),
+            transparent 72%
+        ),
+        radial-gradient(
+            ellipse 38% 36% at 88% 76%,
+            rgba(8, 67, 112, 0.17),
+            transparent 72%
+        );
+
+    background-attachment: fixed;
+}
+
+
+/* ==========================================
+   Page container and introduction
+   ========================================== */
+
+.guide-main {
+    width: min(1440px, calc(100% - 80px));
+    margin: 0 auto;
+    padding: 44px 0 72px;
+}
+
+.guide-intro {
+    margin-bottom: 36px;
+}
+
+.guide-eyebrow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-bottom: 14px;
+
+    color: #8fbaff;
+
+    font-size: 12px;
+    font-weight: 650;
+    letter-spacing: 1.2px;
+    line-height: 1.6;
+}
+
+.guide-eyebrow span {
+    color: #53657c;
+}
+
+.guide-title {
+    color: #f8fafc;
+
+    font-size: clamp(32px, 3.5vw, 48px);
+    font-weight: 800;
+    letter-spacing: -1.8px;
+    line-height: 1.16;
+
+    text-wrap: balance;
+}
+
+.guide-description {
+    max-width: 850px;
+
+    margin-top: 16px;
+
+    color: var(--guide-muted);
+
+    font-size: 17px;
+    line-height: 1.8;
+    letter-spacing: -0.15px;
+}
+
+
+/* ==========================================
+   Main layout
+   ========================================== */
+
+.guide-layout {
+    display: grid;
+    grid-template-columns: 270px minmax(0, 1fr);
+    align-items: start;
+    gap: 36px;
+
+    position: relative;
+}
+
+.guide-content {
+    min-width: 0;
+}
+
+
+/* Hide mobile drawer controls on desktop */
+
+.guide-sidebar-toggle,
+.guide-backdrop {
+    display: none;
+}
+
+
+/* ==========================================
+   Left sidebar
+   ========================================== */
+
+.guide-sidebar {
+    position: sticky;
+    top: 24px;
+
+    min-width: 0;
+    padding: 18px 15px;
+
+    border: 1px solid var(--guide-border);
+    border-radius: 16px;
+
+    background: rgba(16, 23, 34, 0.94);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.sidebar-heading {
+    padding: 2px 10px 13px;
+
+    color: #8fa7c5;
+
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+}
+
+.guide-sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.guide-nav-link {
+    position: relative;
+
+    min-height: 52px;
+    padding: 12px 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    border: 1px solid transparent;
+    border-radius: 10px;
+
+    color: #c1ccdc;
+
+    font-size: 14px;
+    font-weight: 550;
+    line-height: 1.5;
+
+    transition:
+        color 180ms ease,
+        background 180ms ease,
+        border-color 180ms ease,
+        box-shadow 180ms ease;
+}
+
+.guide-nav-link:hover {
+    background: rgba(37, 99, 235, 0.08);
+    color: #f1f5f9;
+}
+
+.guide-nav-link.active {
+    border-color: rgba(59, 130, 246, 0.42);
+
+    background: #1a2a43;
+
+    color: #d7e7ff;
+
+    box-shadow:
+        0 0 16px rgba(37, 99, 235, 0.1);
+}
+
+.guide-nav-link.active::before {
+    content: "";
+
+    position: absolute;
+    top: 9px;
+    bottom: 9px;
+    left: -1px;
+
+    width: 3px;
+
+    border-radius: 5px;
+
+    background: #3b82f6;
+
+    box-shadow:
+        0 0 9px rgba(59, 130, 246, 0.55);
+}
+
+.sidebar-arrow {
+    color: #8fbaff;
+    font-size: 19px;
+
+    transition: transform 180ms ease;
+}
+
+.guide-nav-link:hover .sidebar-arrow {
+    transform: translateX(3px);
+}
+
+
+/* ==========================================
+   Sections and headings
+   ========================================== */
+
+.guide-section {
+    min-width: 0;
+    padding: 8px 0 32px;
+
+    scroll-margin-top: 24px;
+}
+
+.guide-section + .guide-section {
+    margin-top: 36px;
+    padding-top: 30px;
+
+    border-top: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.section-heading {
+    margin-bottom: 24px;
+}
+
+.section-eyebrow {
+    margin-bottom: 8px;
+
+    color: #80b2ff;
+
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.section-heading h2 {
+    color: #f8fafc;
+
+    font-size: clamp(27px, 2.6vw, 36px);
+    font-weight: 750;
+    letter-spacing: -1.15px;
+    line-height: 1.25;
+
+    text-wrap: balance;
+}
+
+.section-description {
+    max-width: 850px;
+
+    margin-top: 12px;
+
+    color: var(--guide-muted);
+
+    font-size: 16px;
+    line-height: 1.85;
+}
+
+
+/* ==========================================
+   Getting Started — three instruction cards
+   ========================================== */
+
+.guide-step-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.guide-step-card {
+    min-width: 0;
+    min-height: 280px;
+
+    padding: 23px 21px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    border: 1px solid var(--guide-border);
+    border-radius: 14px;
+
+    background: rgba(16, 23, 34, 0.94);
+
+    transition:
+        border-color 180ms ease,
+        background 180ms ease;
+}
+
+.guide-step-card:hover {
+    border-color: rgba(96, 165, 250, 0.35);
+    background: rgba(18, 30, 47, 0.98);
+}
+
+.step-card-top {
+    width: 100%;
+    margin-bottom: 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.step-number {
+    min-width: 34px;
+    min-height: 28px;
+    padding: 4px 7px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 5px;
+
+    background: #23344c;
+
+    color: #a9caff;
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.step-icon {
+    color: #96a8bd;
+    font-size: 22px;
+    line-height: 1;
+}
+
+.guide-step-card h3 {
+    margin-bottom: 12px;
+
+    color: #edf4ff;
+
+    font-size: 17px;
+    font-weight: 650;
+    letter-spacing: -0.35px;
+    line-height: 1.45;
+}
+
+.guide-step-card p {
+    color: #a9b8cc;
+
+    font-size: 14px;
+    line-height: 1.85;
+
+    overflow-wrap: anywhere;
+}
+
+.step-label {
+    margin-top: auto;
+    padding-top: 22px;
+
+    color: #86a9d5;
+
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+
+/* ==========================================
+   Example repository URL
+   ========================================== */
+
+.example-repository {
+    min-width: 0;
+
+    margin-top: 20px;
+    padding: 15px 17px;
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+
+    border: 1px solid var(--guide-border);
+    border-radius: 11px;
+
+    background: rgba(5, 11, 20, 0.75);
+}
+
+.example-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #aebed2;
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.example-label > span:first-child {
+    color: #91baff;
+    font-family: Consolas, monospace;
+    font-size: 17px;
+}
+
+.example-url {
+    min-width: 0;
+    max-width: 100%;
+    padding: 9px 11px;
+
+    border: 1px solid rgba(148, 163, 184, 0.12);
+    border-radius: 6px;
+
+    background: #172438;
+
+    color: #c6dcff;
+
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 12px;
+    line-height: 1.6;
+
+    overflow-wrap: anywhere;
+}
+
+.example-actions {
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.repository-type {
+    padding: 7px 9px;
+
+    border-radius: 5px;
+
+    background: #172438;
+
+    color: #a9bfdc;
+
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.copy-button {
+    min-height: 39px;
+    padding: 8px 12px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    border: 1px solid #293b53;
+    border-radius: 7px;
+
+    background: #142238;
+
+    color: #d9e8ff;
+
+    font-size: 12px;
+    font-weight: 550;
+
+    transition:
+        background 180ms ease,
+        border-color 180ms ease,
+        box-shadow 180ms ease;
+}
+
+.copy-button:hover {
+    border-color: #3b82f6;
+    background: #1a2c46;
+
+    box-shadow:
+        0 0 13px rgba(37, 99, 235, 0.15);
+}
+
+.copy-button:active {
+    background: #203653;
+}
+
+
+/* ==========================================
+   Informational note
+   ========================================== */
+
+.guide-note {
+    margin-top: 20px;
+    padding: 19px 20px;
+
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+
+    border: 1px solid #23364b;
+    border-radius: 12px;
+
+    background: rgba(13, 27, 43, 0.85);
+}
+
+.note-icon {
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #365b84;
+    border-radius: 50%;
+
+    color: #a6caff;
+
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.guide-note h3 {
+    margin-bottom: 6px;
+
+    color: #edf4ff;
+
+    font-size: 15px;
+    font-weight: 650;
+    line-height: 1.5;
+}
+
+.guide-note p {
+    color: #aebdd0;
+
+    font-size: 13px;
+    line-height: 1.85;
+
+    overflow-wrap: anywhere;
+}
+
+.guide-note code,
+.troubleshooting-answer code {
+    padding: 3px 6px;
+
+    border-radius: 4px;
+
+    background: #1a2a40;
+
+    color: #c6dcff;
+
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 0.92em;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* ==========================================
+   Understanding Results — metric table
+   ========================================== */
+
+.metrics-table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+
+    border: 1px solid var(--guide-border);
+    border-radius: 11px;
+
+    background: rgba(16, 23, 34, 0.95);
+}
+
+.metrics-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    text-align: left;
+}
+
+.metrics-table thead {
+    background: rgba(5, 12, 23, 0.8);
+}
+
+.metrics-table th,
+.metrics-table td {
+    padding: 17px 18px;
+
+    border-bottom: 1px solid rgba(148, 163, 184, 0.12);
+
+    font-size: 13px;
+    line-height: 1.8;
+    vertical-align: top;
+}
+
+.metrics-table thead th {
+    color: #91a7c2;
+
+    font-family: Consolas, "Courier New", monospace;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.metrics-table tbody tr:last-child th,
+.metrics-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.metrics-table tbody tr:hover {
+    background: rgba(59, 130, 246, 0.035);
+}
+
+.metrics-table tbody th {
+    width: 30%;
+    min-width: 170px;
+
+    color: #b8d3ff;
+
+    font-weight: 550;
+    white-space: normal;
+}
+
+.metrics-table tbody th span {
+    display: inline-block;
+
+    margin-right: 8px;
+
+    color: #8eb8ff;
+    font-size: 16px;
+}
+
+.metrics-table td {
+    color: #b5c2d3;
+}
+
+
+/* ==========================================
+   Common Problems — accordions
+   ========================================== */
+
+.troubleshooting-list {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+}
+
+.troubleshooting-item {
+    min-width: 0;
+
+    border: 1px solid var(--guide-border);
+    border-radius: 10px;
+
+    background: rgba(16, 23, 34, 0.96);
+
+    overflow: hidden;
+
+    transition:
+        border-color 180ms ease,
+        background 180ms ease;
+}
+
+.troubleshooting-item:hover {
+    border-color: rgba(96, 165, 250, 0.25);
+}
+
+.troubleshooting-item[open] {
+    border-color: rgba(59, 130, 246, 0.4);
+
+    background: rgba(17, 29, 46, 0.97);
+}
+
+.troubleshooting-item summary {
+    min-height: 54px;
+    padding: 14px 17px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: #cbd8e9;
+
+    font-size: 14px;
+    font-weight: 550;
+    line-height: 1.5;
+
+    list-style: none;
+    cursor: pointer;
+}
+
+.troubleshooting-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.troubleshooting-item summary > span:first-child {
+    color: #8ba8cb;
+    font-size: 17px;
+}
+
+.accordion-arrow {
+    margin-left: auto;
+
+    color: #91a8c2;
+    font-size: 18px;
+
+    transition: transform 180ms ease;
+}
+
+.troubleshooting-item[open] .accordion-arrow {
+    transform: rotate(180deg);
+}
+
+.troubleshooting-item summary:hover {
+    color: #f1f5f9;
+}
+
+.troubleshooting-answer {
+    padding: 0 18px 19px 46px;
+
+    color: #aebdd0;
+
+    font-size: 13px;
+    line-height: 1.9;
+
+    overflow-wrap: anywhere;
+}
+
+.troubleshooting-answer p + p {
+    margin-top: 12px;
+}
+
+.troubleshooting-answer code {
+    display: inline-block;
+
+    margin: 9px 0;
+}
+
+
+/* ==========================================
+   Previous / Next navigation
+   ========================================== */
+
+.guide-pagination {
+    margin-top: 28px;
+    padding-top: 19px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+
+    border-top: 1px solid rgba(148, 163, 184, 0.12);
+}
+
+.pagination-previous,
+.pagination-next {
+    min-height: 42px;
+    padding: 10px 13px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    border: 1px solid transparent;
+    border-radius: 8px;
+
+    color: #a9c8f6;
+
+    font-size: 12px;
+    font-weight: 550;
+    line-height: 1.5;
+
+    transition:
+        color 180ms ease,
+        background 180ms ease,
+        border-color 180ms ease,
+        box-shadow 180ms ease;
+}
+
+.pagination-previous:hover,
+.pagination-next:hover {
+    border-color: #294b7c;
+    background: rgba(37, 99, 235, 0.09);
+
+    color: #e1edff;
+
+    box-shadow:
+        0 0 13px rgba(37, 99, 235, 0.1);
+}
+
+
+/* ==========================================
+   Footer
+   ========================================== */
+
+.site-footer {
+    margin-top: 28px;
+    padding: 23px 0;
+
+    border-top: 1px solid rgba(148, 163, 184, 0.13);
+
+    background: rgba(5, 10, 18, 0.62);
+}
+
+.footer-content {
+    width: min(1440px, calc(100% - 80px));
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-brand p {
+    color: #95a6bd;
+
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.footer-brand strong {
+    color: #e0eaf7;
+    font-weight: 650;
+}
+
+.footer-brand p > span {
+    margin: 0 5px;
+    color: #52647b;
+}
+
+.footer-subtitle {
+    margin-top: 3px;
+
+    color: #70839e !important;
+
+    font-size: 11px !important;
+}
+
+.footer-nav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-nav a {
+    color: #92a5bd;
+
+    font-size: 12px;
+
+    transition: color 180ms ease;
+}
+
+.footer-nav a:hover,
+.footer-nav a[aria-current="page"] {
+    color: #b9d4ff;
+}
+
+
+/* ==========================================
+   Split-screen sidebar drawer
+   Sidebar stays on the left; it never moves
+   to the top of the page.
+   ========================================== */
+
+@media (max-width: 950px) {
+    .guide-main {
+        width: calc(100% - 40px);
+    }
+
+    .guide-layout {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    .guide-sidebar-toggle {
+        width: fit-content;
+        max-width: 100%;
+        min-height: 43px;
+
+        padding: 9px 13px;
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        border: 1px solid var(--guide-border);
+        border-radius: 9px;
+
+        background: var(--guide-panel);
+
+        color: #d5e4f6;
+
+        font-size: 13px;
+        font-weight: 550;
+
+        cursor: pointer;
+
+        transition:
+            border-color 180ms ease,
+            background 180ms ease,
+            box-shadow 180ms ease;
+    }
+
+    .guide-sidebar-toggle:hover {
+        border-color: #365b84;
+        background: #142238;
+
+        box-shadow:
+            0 0 14px rgba(37, 99, 235, 0.1);
+    }
+
+    .guide-sidebar-toggle span {
+        color: #a9caff;
+        font-size: 18px;
+    }
+
+    .guide-sidebar {
+        position: fixed;
+        z-index: 1001;
+
+        top: 0;
+        bottom: 0;
+        left: 0;
+
+        width: min(310px, 86vw);
+        height: 100vh;
+        height: 100dvh;
+
+        padding: 24px 16px;
+
+        border-top: none;
+        border-bottom: none;
+        border-left: none;
+
+        border-radius: 0 16px 16px 0;
+
+        background: #0b1421;
+
+        box-shadow: 18px 0 55px rgba(0, 0, 0, 0.38);
+
+        overflow-y: auto;
+
+        transform: translateX(-105%);
+        visibility: hidden;
+        pointer-events: none;
+
+        transition:
+            transform 230ms ease,
+            visibility 230ms ease;
+    }
+
+    .guide-layout.sidebar-open .guide-sidebar {
+        transform: translateX(0);
+
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    .guide-backdrop {
+        position: fixed;
+        z-index: 1000;
+        inset: 0;
+
+        display: block;
+
+        border: 0;
+
+        background: rgba(0, 0, 0, 0.58);
+
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+
+        transition:
+            opacity 230ms ease,
+            visibility 230ms ease;
+    }
+
+    .guide-layout.sidebar-open .guide-backdrop {
+        opacity: 1;
+
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    .guide-section {
+        scroll-margin-top: 20px;
+    }
+
+    .guide-step-card {
+        padding: 20px 17px;
+    }
+
+    .footer-content {
+        width: calc(100% - 40px);
+    }
+}
+
+
+/* ==========================================
+   Smaller split-screen windows
+   ========================================== */
+
+@media (max-width: 650px) {
+    .guide-main {
+        width: calc(100% - 32px);
+        padding-top: 30px;
+        padding-bottom: 45px;
+    }
+
+    .guide-intro {
+        margin-bottom: 27px;
+    }
+
+    .guide-eyebrow {
+        gap: 8px;
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+
+    .guide-title {
+        font-size: clamp(29px, 6vw, 38px);
+        letter-spacing: -1.3px;
+    }
+
+    .guide-description {
+        margin-top: 12px;
+        font-size: 14px;
+        line-height: 1.8;
+    }
+
+    .section-heading h2 {
+        font-size: clamp(25px, 5vw, 32px);
+    }
+
+    .section-description {
+        font-size: 14px;
+    }
+
+    .guide-step-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .guide-step-card {
+        min-height: 0;
+        padding: 20px;
+    }
+
+    .step-card-top {
+        margin-bottom: 15px;
+    }
+
+    .step-label {
+        margin-top: 18px;
+        padding-top: 0;
+    }
+
+    .example-repository {
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .example-label {
+        width: 100%;
+    }
+
+    .example-url {
+        flex: 1;
+    }
+
+    .example-actions {
+        width: 100%;
+        margin-left: 0;
+
+        justify-content: flex-end;
+    }
+
+    .guide-note {
+        padding: 15px;
+        gap: 11px;
+    }
+
+    .guide-note p {
+        font-size: 12px;
+    }
+
+    .metrics-table th,
+    .metrics-table td {
+        padding: 13px 12px;
+        font-size: 12px;
+    }
+
+    .metrics-table tbody th {
+        min-width: 135px;
+    }
+
+    .troubleshooting-item summary {
+        padding: 13px;
+        font-size: 13px;
+    }
+
+    .troubleshooting-answer {
+        padding: 0 14px 16px 40px;
+    }
+
+    .guide-pagination {
+        align-items: stretch;
+        flex-wrap: wrap;
+    }
+
+    .guide-pagination > * {
+        max-width: 100%;
+    }
+
+    .footer-content {
+        width: calc(100% - 32px);
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .footer-nav {
+        gap: 18px;
+    }
+}
+
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+    .guide-page *,
+    .guide-page *::before,
+    .guide-page *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+/* ==========================================
+   Floating Copy Notification
+   ========================================== */
+
+.guide-toast {
+    position: fixed;
+    z-index: 2000;
+
+    right: 24px;
+    bottom: 24px;
+
+    width: max-content;
+    max-width: min(420px, calc(100% - 32px));
+
+    padding: 16px 19px;
+
+    display: flex;
+    align-items: center;
+    gap: 13px;
+
+    border: 1px solid rgba(96, 165, 250, 0.4);
+    border-radius: 13px;
+
+    background: rgba(11, 20, 33, 0.97);
+
+    color: #edf5ff;
+
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.6;
+
+    box-shadow:
+        0 12px 38px rgba(0, 0, 0, 0.42),
+        0 0 22px rgba(37, 99, 235, 0.13);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transform: translateY(12px);
+
+    transition:
+        opacity 220ms ease,
+        transform 220ms ease,
+        visibility 220ms ease;
+}
+
+.guide-toast.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.toast-icon {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(96, 165, 250, 0.35);
+    border-radius: 50%;
+
+    background: rgba(37, 99, 235, 0.16);
+
+    color: #8fbcff;
+
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.guide-toast.error {
+    border-color: rgba(248, 113, 113, 0.4);
+}
+
+.guide-toast.error .toast-icon {
+    border-color: rgba(248, 113, 113, 0.35);
+    background: rgba(127, 29, 29, 0.2);
+    color: #fca5a5;
+}
+
+.copy-button.copied {
+    border-color: #3b82f6;
+    background: #1a2c46;
+    color: #dbeafe;
+}
+
+.copy-button:disabled {
+    cursor: wait;
+    opacity: 0.8;
+}
+
+@media (max-width: 480px) {
+    .guide-toast {
+        right: 16px;
+        bottom: 16px;
+
+        padding: 14px 16px;
+
+        font-size: 13px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .guide-toast {
+        transition: none;
+    }
+}
+/* ==========================================
+   Persistent Guide Sections Button
+   Stays visible while scrolling
+   ========================================== */
+
+@media (max-width: 950px) {
+
+    .guide-sidebar-toggle {
+        position: fixed;
+        left: 18px;
+        bottom: 18px;
+        z-index: 1002;
+
+        margin: 0;
+
+        min-height: 48px;
+        padding: 12px 17px;
+
+        border: 1px solid rgba(96, 165, 250, 0.35);
+        border-radius: 12px;
+
+        background: rgba(11, 20, 33, 0.96);
+        color: #e2ecfa;
+
+        box-shadow:
+            0 8px 28px rgba(0, 0, 0, 0.35),
+            0 0 16px rgba(37, 99, 235, 0.12);
+
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+
+        transition:
+            background 180ms ease,
+            border-color 180ms ease,
+            box-shadow 180ms ease;
+    }
+
+    .guide-sidebar-toggle:hover {
+        border-color: #3b82f6;
+        background: #142238;
+
+        box-shadow:
+            0 8px 28px rgba(0, 0, 0, 0.4),
+            0 0 20px rgba(37, 99, 235, 0.22);
+    }
+
+    .guide-sidebar-toggle:active {
+        background: #1a2a43;
+    }
+
+    /* Prevent page scrolling while the drawer is open */
+    body.guide-drawer-open {
+        overflow: hidden;
+    }
+}
+/* Remove arrow next to Getting Started */
+.guide-nav-link[href="#getting-started"] .sidebar-arrow {
+    display: none;
+}
