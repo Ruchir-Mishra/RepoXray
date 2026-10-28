@@ -1330,3 +1330,15 @@
 .guide-nav-link[href="#getting-started"] .sidebar-arrow {
     display: none;
 }
+/* Highlight the active User Guide footer link */
+
+.guide-page .footer-nav a[aria-current="page"] {
+    color: #a9caff;
+
+    text-shadow:
+        0 0 12px rgba(96, 165, 250, 0.22);
+
+    transition:
+        color 180ms ease,
+        text-shadow 180ms ease;
+}
