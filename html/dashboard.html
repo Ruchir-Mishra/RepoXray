@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Explore GitHub repository activity, code frequency, commits, contributors, and repository structure with RepoXray."
+    >
+
+    <title>Repository Dashboard | RepoXray</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+>
+
+    <!-- Shared design system -->
+    <link rel="stylesheet" href="../css/home-page.css">
+
+    <!-- Dashboard-specific styling -->
+    <link rel="stylesheet" href="../css/dashboard.css">
+
+    <!-- Dashboard interactions -->
+    <script src="../js/dashboard.js" defer></script>
+</head>
+
+<body class="dashboard-page">
+
+    <!-- ==========================================
+         HEADER
+         ========================================== -->
+
+    <header class="site-header">
+
+        <a class="brand" href="home-page.html">
+            RepoXray
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+
+            <a class="nav-link" href="home-page.html">
+                Home
+            </a>
+
+            <a class="nav-link" href="user-guide.html">
+                User Guide
+            </a>
+
+            <a class="nav-link" href="about.html">
+                About
+            </a>
+
+        </nav>
+
+        <button
+            class="github-button"
+            id="github-button"
+            type="button"
+            aria-haspopup="dialog"
+            aria-controls="github-dialog"
+        >
+            <span aria-hidden="true">&lt; &gt;</span>
+            GitHub
+        </button>
+
+    </header>
+
+
+    <!-- ==========================================
+         DASHBOARD MAIN
+         ========================================== -->
+
+    <main class="dashboard-main">
+
+        <!-- Repository summary -->
+
+        <section
+            class="repository-summary"
+            aria-label="Repository information"
+        >
+
+            <div
+                class="repository-icon"
+                aria-hidden="true"
+            >
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.7"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                >
+                    <rect x="3" y="4" width="18" height="16" rx="3"></rect>
+                    <path d="M8 9l3 3-3 3"></path>
+                    <path d="M13 15h3"></path>
+                </svg>
+            </div>
+
+
+            <div class="repository-information">
+
+                <div class="repository-name-line">
+
+                    <h1 id="repository-name">
+    Example Organization / Sample Repository
+</h1>
+
+                    <span class="repository-visibility">
+                        Public
+                    </span>
+
+                </div>
+
+                <p
+    class="repository-description"
+    id="repository-description"
+>
+    Illustrative repository used to preview the RepoXray dashboard.
+</p>
+
+                <p class="repository-meta">
+
+                    <span id="analysis-status">
+                        Dashboard preview
+                    </span>
+
+                    <span aria-hidden="true">·</span>
+
+                    <span id="analysis-time">
+                        Sample data
+                    </span>
+
+                </p>
+
+            </div>
+
+
+            <a
+                class="repository-link"
+                id="view-repository"
+                href="https://github.com/facebook/react"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <span aria-hidden="true">↗</span>
+                View on GitHub
+            </a>
+
+        </section>
+
+
+        <!-- Preview data notice -->
+
+        <div class="dashboard-notice" id="dashboard-notice">
+
+            <span class="notice-dot" aria-hidden="true"></span>
+
+            <p>
+                Preview dashboard — displayed metrics are sample data
+                until repository analysis is connected.
+            </p>
+
+        </div>
+
+
+        <!-- ==========================================
+             OVERVIEW METRICS
+             ========================================== -->
+
+        <section
+            class="metrics-grid"
+            aria-label="Repository metrics"
+        >
+
+            <!-- Code frequency -->
+
+            <article class="metric-card">
+
+                <div class="metric-card-heading">
+
+                    <h2>Code Frequency</h2>
+
+                    <span
+                        class="metric-icon"
+                        aria-hidden="true"
+                    >
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path d="M3 17l6-6 4 3 8-9"></path>
+                            <path d="M15 5h6v6"></path>
+                        </svg>
+                    </span>
+
+                </div>
+
+                <p class="metric-value">
+                    <span id="code-added">+1.2k</span>
+                    <span class="metric-separator">/</span>
+                    <span id="code-removed">−0.8k</span>
+                </p>
+
+                <p class="metric-description">
+                    Weekly additions and deletions
+                </p>
+
+            </article>
+
+
+            <!-- Repository activity -->
+
+            <article class="metric-card">
+
+                <div class="metric-card-heading">
+
+                    <h2>Activity</h2>
+
+                    <span
+                        class="metric-icon"
+                        aria-hidden="true"
+                    >
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path d="M3 12h4l3-8 4 16 3-8h4"></path>
+                        </svg>
+                    </span>
+
+                </div>
+
+                <p class="activity-status">
+                    <span class="status-indicator"></span>
+                    <span id="activity-label">Active</span>
+                </p>
+
+                <p class="metric-description">
+                    Based on the displayed sample activity
+                </p>
+
+            </article>
+
+
+            <!-- Contributors -->
+
+            <article class="metric-card">
+
+                <div class="metric-card-heading">
+
+                    <h2>Contributors</h2>
+
+                    <span
+                        class="metric-icon"
+                        aria-hidden="true"
+                    >
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <circle cx="9" cy="8" r="3"></circle>
+                            <path d="M3.5 19v-1.5a5.5 5.5 0 0 1 11 0V19"></path>
+                            <path d="M16 5.5a3 3 0 0 1 0 5.8"></path>
+                            <path d="M18 14a4 4 0 0 1 2.5 3.7V19"></path>
+                        </svg>
+                    </span>
+
+                </div>
+
+                <p class="metric-value" id="contributors-count">
+                    120+
+                </p>
+
+                <p class="metric-description">
+                    Sample contributor count
+                </p>
+
+            </article>
+
+
+            <!-- Commits -->
+
+            <article class="metric-card">
+
+                <div class="metric-card-heading">
+
+                    <h2>Commits</h2>
+
+                    <span
+                        class="metric-icon"
+                        aria-hidden="true"
+                    >
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="M3 12h6"></path>
+                            <path d="M15 12h6"></path>
+                        </svg>
+                    </span>
+
+                </div>
+
+                <p class="metric-value" id="commits-count">
+                    4,820
+                </p>
+
+                <p class="metric-description">
+                    Sample commit count
+                </p>
+
+            </article>
+
+        </section>
+
+
+        <!-- ==========================================
+             ACTIVITY CHART AND CONTRIBUTORS
+             ========================================== -->
+
+        <section
+            class="dashboard-analytics"
+            aria-label="Repository analytics"
+        >
+
+            <!-- Repository activity chart -->
+
+            <article class="dashboard-panel activity-panel">
+
+                <div class="panel-heading">
+
+                    <div>
+
+                        <h2>Repository Activity</h2>
+
+                        <p>
+                            Commit activity over time
+                        </p>
+
+                    </div>
+
+                    <label class="chart-period-control">
+
+                        <span class="visually-hidden">
+                            Activity time period
+                        </span>
+
+                        <select id="activity-period">
+
+                            <option value="6">Last 6 months</option>
+                            <option value="3">Last 3 months</option>
+                            <option value="12">Last 12 months</option>
+
+                        </select>
+
+                    </label>
+
+                </div>
+
+
+                <div class="chart-legend">
+
+                    <span class="legend-dot"></span>
+
+                    <span>Commits</span>
+
+                    <span class="chart-data-label">
+                        Sample data
+                    </span>
+
+                </div>
+
+
+                <!-- Static SVG illustration until real data is connected -->
+
+                <div class="activity-chart-container">
+
+                    <svg
+                        class="activity-chart"
+                        viewBox="0 0 720 245"
+                        preserveAspectRatio="none"
+                        role="img"
+                        aria-label="Illustrative sample commit activity chart"
+                    >
+
+                        <g class="chart-grid-lines">
+
+                            <line x1="0" y1="35" x2="720" y2="35"></line>
+                            <line x1="0" y1="90" x2="720" y2="90"></line>
+                            <line x1="0" y1="145" x2="720" y2="145"></line>
+                            <line x1="0" y1="200" x2="720" y2="200"></line>
+
+                        </g>
+
+
+                        <path
+                            class="chart-area"
+                            d="M0 180
+                               L45 160
+                               L85 171
+                               L125 136
+                               L165 149
+                               L205 112
+                               L245 130
+                               L285 101
+                               L325 120
+                               L365 146
+                               L405 123
+                               L445 133
+                               L485 89
+                               L525 105
+                               L565 75
+                               L605 98
+                               L645 60
+                               L685 80
+                               L720 48
+                               L720 200
+                               L0 200 Z"
+                        ></path>
+
+
+                        <polyline
+                            class="chart-line"
+                            points="0,180 45,160 85,171 125,136 165,149 205,112 245,130 285,101 325,120 365,146 405,123 445,133 485,89 525,105 565,75 605,98 645,60 685,80 720,48"
+                        ></polyline>
+
+
+                        <g class="chart-points">
+
+                            <circle cx="0" cy="180" r="3"></circle>
+                            <circle cx="125" cy="136" r="3"></circle>
+                            <circle cx="245" cy="130" r="3"></circle>
+                            <circle cx="365" cy="146" r="3"></circle>
+                            <circle cx="485" cy="89" r="3"></circle>
+                            <circle cx="605" cy="98" r="3"></circle>
+                            <circle cx="720" cy="48" r="3"></circle>
+
+                        </g>
+
+                    </svg>
+
+                </div>
+
+
+                <div class="chart-months" id="chart-months">
+
+                    <span>Apr</span>
+                    <span>May</span>
+                    <span>Jun</span>
+                    <span>Jul</span>
+                    <span>Aug</span>
+                    <span>Sep</span>
+
+                </div>
+
+
+                <p class="chart-disclaimer">
+                    Illustrative visualization; not connected to GitHub data yet.
+                </p>
+
+            </article>
+
+
+            <!-- Top contributors -->
+
+            <article class="dashboard-panel contributors-panel">
+
+                <div class="panel-heading">
+
+                    <div>
+
+                        <h2>Top Contributors</h2>
+
+                        <p>
+                            Example contributor list
+                        </p>
+
+                    </div>
+
+                    <span
+                        class="panel-heading-icon"
+                        aria-hidden="true"
+                    >
+                        ★
+                    </span>
+
+                </div>
+
+
+                <div
+                    class="contributors-list"
+                    id="contributors-list"
+                >
+
+                    <div class="contributor-row">
+
+                        <span class="contributor-avatar">A</span>
+
+                        <div class="contributor-information">
+
+                            <h3>Contributor Alpha</h3>
+
+                            <p>Example contributor</p>
+
+                        </div>
+
+                        <span class="contribution-count">
+                            420
+                        </span>
+
+                    </div>
+
+
+                    <div class="contributor-row">
+
+                        <span class="contributor-avatar">B</span>
+
+                        <div class="contributor-information">
+
+                            <h3>Contributor Beta</h3>
+
+                            <p>Example contributor</p>
+
+                        </div>
+
+                        <span class="contribution-count">
+                            315
+                        </span>
+
+                    </div>
+
+
+                    <div class="contributor-row">
+
+                        <span class="contributor-avatar">C</span>
+
+                        <div class="contributor-information">
+
+                            <h3>Contributor Gamma</h3>
+
+                            <p>Example contributor</p>
+
+                        </div>
+
+                        <span class="contribution-count">
+                            270
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <button
+                    class="view-contributors-button"
+                    id="view-contributors"
+                    type="button"
+                    aria-expanded="false"
+                    aria-controls="additional-contributors"
+                >
+                    View all contributors
+                    <span aria-hidden="true">→</span>
+                </button>
+
+
+                <div
+                    class="additional-contributors"
+                    id="additional-contributors"
+                    hidden
+                >
+
+                    <p>
+                        Additional contributor information will appear
+                        here when the analysis data is connected.
+                    </p>
+
+                </div>
+
+            </article>
+
+        </section>
+
+
+        <!-- ==========================================
+             REPOSITORY STRUCTURE
+             ========================================== -->
+
+        <section
+            class="dashboard-panel structure-panel"
+            aria-labelledby="structure-title"
+        >
+
+            <div class="panel-heading">
+
+                <div>
+
+                    <h2 id="structure-title">
+                        Repository Structure
+                    </h2>
+
+                    <p>
+                        Example top-level folders and directories
+                    </p>
+
+                </div>
+
+                <label class="branch-control">
+
+                    <span>Branch</span>
+
+                    <select id="branch-selector">
+                        <option value="main">main</option>
+                    </select>
+
+                </label>
+
+            </div>
+
+
+            <div
+                class="repository-structure-list"
+                id="repository-structure-list"
+            >
+
+                <button
+                    class="structure-row"
+                    type="button"
+                    aria-expanded="false"
+                >
+
+                    <span class="structure-name">
+
+                        <span class="folder-icon" aria-hidden="true">
+                            ▱
+                        </span>
+
+                        <span>.github</span>
+
+                    </span>
+
+                    <span class="structure-description">
+                        Example repository configuration
+                    </span>
+
+                </button>
+
+
+                <div class="structure-details" hidden>
+
+                    <p>
+                        Configuration files and workflow directories
+                        can be displayed here after repository data
+                        is connected.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="structure-row"
+                    type="button"
+                    aria-expanded="false"
+                >
+
+                    <span class="structure-name">
+
+                        <span class="folder-icon" aria-hidden="true">
+                            ▱
+                        </span>
+
+                        <span>src</span>
+
+                    </span>
+
+                    <span class="structure-description">
+                        Example source code directory
+                    </span>
+
+                </button>
+
+
+                <div class="structure-details" hidden>
+
+                    <p>
+                        Source files and subdirectories will be shown
+                        here when the repository tree is loaded.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="structure-row"
+                    type="button"
+                    aria-expanded="false"
+                >
+
+                    <span class="structure-name">
+
+                        <span class="folder-icon" aria-hidden="true">
+                            ▱
+                        </span>
+
+                        <span>tests</span>
+
+                    </span>
+
+                    <span class="structure-description">
+                        Example test directory
+                    </span>
+
+                </button>
+
+
+                <div class="structure-details" hidden>
+
+                    <p>
+                        Test files and test directories will be shown
+                        here when repository contents are available.
+                    </p>
+
+                </div>
+
+
+                <button
+                    class="structure-row"
+                    type="button"
+                    aria-expanded="false"
+                >
+
+                    <span class="structure-name">
+
+                        <span class="folder-icon" aria-hidden="true">
+                            ▱
+                        </span>
+
+                        <span>docs</span>
+
+                    </span>
+
+                    <span class="structure-description">
+                        Example documentation directory
+                    </span>
+
+                </button>
+
+
+                <div class="structure-details" hidden>
+
+                    <p>
+                        Documentation files will be shown here when
+                        the repository contents are loaded.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ==========================================
+         FOOTER
+         ========================================== -->
+
+    <footer class="site-footer">
+
+        <div class="footer-content">
+
+            <div class="footer-brand">
+
+                <p>
+                    <strong>© 2026 RepoXray</strong>
+                    <span aria-hidden="true">·</span>
+                    Repository insights for engineering teams.
+                </p>
+
+                <p class="footer-subtitle">
+                    Understand repository activity, commits,
+                    and contribution patterns.
+                </p>
+
+            </div>
+
+            <nav class="footer-nav" aria-label="Footer navigation">
+
+                <a href="home-page.html">
+    Home
+</a>
+
+                <a href="user-guide.html">
+                    User Guide
+                </a>
+
+                <a href="about.html">
+                    About
+                </a>
+
+            </nav>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ==========================================
+         GITHUB SIGN-IN MODAL
+         ========================================== -->
+
+    <dialog
+        class="github-dialog"
+        id="github-dialog"
+        aria-labelledby="github-dialog-title"
+    >
+
+        <button
+            class="dialog-close"
+            id="dialog-close"
+            type="button"
+            aria-label="Close dialog"
+        >
+            &times;
+        </button>
+
+
+        <div class="github-mark" aria-hidden="true">
+
+            <svg
+                viewBox="0 0 24 24"
+                width="36"
+                height="36"
+                fill="currentColor"
+            >
+                <path
+                    d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.54v-2.1c-3.1.67-3.75-1.31-3.75-1.31-.5-1.28-1.23-1.62-1.23-1.62-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15 1 1.7 2.62 1.2 3.26.91.1-.71.39-1.2.71-1.48-2.47-.28-5.07-1.24-5.07-5.5 0-1.22.44-2.21 1.15-2.99-.12-.28-.5-1.42.11-2.95 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.11-1.44 3.04-1.14 3.04-1.14.61 1.53.23 2.67.12 2.95.72.78 1.15 1.77 1.15 2.99 0 4.27-2.61 5.21-5.09 5.49.4.34.75 1.02.75 2.06v3.07c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"
+                />
+            </svg>
+
+        </div>
+
+
+        <h2 id="github-dialog-title">
+            Sign in with GitHub
+        </h2>
+
+        <p>
+            Connect your GitHub account to quickly explore your
+            public repositories and generate automated analytics.
+        </p>
+
+
+        <a
+            class="dialog-action"
+            href="https://github.com/login"
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+
+            <span>Sign in</span>
+
+            <svg
+                viewBox="0 0 24 24"
+                width="20"
+                height="20"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+            >
+                <path d="M10 17l5-5-5-5"></path>
+                <path d="M15 12H3"></path>
+                <path d="M12 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-6"></path>
+            </svg>
+
+        </a>
+
+    </dialog>
+
+</body>
+</html>
