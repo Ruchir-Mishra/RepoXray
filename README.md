@@ -175,14 +175,11 @@ RepoXray provides practical experience with:
 
 Add the names of your actual project team members and their roles here.
 
-- 👨‍💻 **Project Lead:** Your Name
-- 👨‍💻 **Contributor:** Team Member Name
-- 👨‍💻 **Contributor:** Team Member Name
-
-## 📄 License
-
-No license has been specified yet. If you intend to publish RepoXray as open-source software, consider adding an appropriate license file.
-
+- 👨‍💻 **Project Lead:** Ruchir Mishra
+- 👨‍💻 **Contributor:** Ledev Sharma
+- 👨‍💻 **Contributor:** Rudra Singh
+- 👨‍💻 **Contributor:** Aryan Aggarwal
+- 👨‍💻 **Contributor:** Yuvraj
 ---
 
 <p align="center">
