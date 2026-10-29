@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RepoXray | GitHub Repository Insights</title>
+
+    <link rel="stylesheet" href="../css/home-page.css">
+    <script src="../js/home-page.js" defer></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <a class="brand" href="home-page.html">RepoXray</a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+            <a class="nav-link active" href="home-page.html">Home</a>
+            <a class="nav-link" href="user-guide.html">User Guide</a>
+            <a class="nav-link" href="about.html">About</a>
+        </nav>
+
+        <button class="github-button" id="github-button" type="button">
+            <span aria-hidden="true">&lt; &gt;</span>
+            GitHub
+        </button>
+    </header>
+
+    <main class="home-main">
+        <section class="hero" aria-labelledby="hero-title">
+
+            <div class="hero-badge">
+                <span class="badge-icon" aria-hidden="true">ϟ</span>
+                GITHUB REPOSITORY INSIGHTS
+            </div>
+
+            <h1 id="hero-title">
+                Understand your repository
+                <span>at a glance</span>
+            </h1>
+
+            <p class="hero-description">
+                Analyze code frequency, activity, contributors, and commits
+                from a single GitHub repository.
+            </p>
+
+            <form class="repository-form" id="repository-form" novalidate>
+                <label class="visually-hidden" for="repository-url">
+                    GitHub repository URL
+                </label>
+
+                <span class="search-icon" aria-hidden="true">⌕</span>
+
+                <input
+                    id="repository-url"
+                    name="repositoryUrl"
+                    type="url"
+                    placeholder="Paste a public GitHub repository URL"
+                    autocomplete="url"
+                    required
+                >
+
+                <button class="analyze-button" type="submit">
+                    Analyze Repository
+                    <span aria-hidden="true">→</span>
+                </button>
+            </form>
+
+            <p class="form-message" id="form-message" role="status"
+                aria-live="polite"></p>
+
+            <div class="feature-list" aria-label="Available insights">
+                <div class="feature-badge">
+                    <span class="feature-icon" aria-hidden="true">⌁</span>
+                    Code Frequency
+                </div>
+
+                <div class="feature-badge">
+                    <span class="feature-icon" aria-hidden="true">ϟ</span>
+                    Activity
+                </div>
+
+                <div class="feature-badge">
+                    <span class="feature-icon" aria-hidden="true">♧</span>
+                    Contributors
+                </div>
+
+                <div class="feature-badge">
+                    <span class="feature-icon" aria-hidden="true">⊙</span>
+                    Commits
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- GitHub Sign-in Modal -->
+<dialog
+    class="github-dialog"
+    id="github-dialog"
+    aria-labelledby="github-dialog-title"
+>
+    <button
+        class="dialog-close"
+        id="dialog-close"
+        type="button"
+        aria-label="Close dialog"
+    >
+        &times;
+    </button>
+
+    <!-- GitHub Logo -->
+    <div class="github-mark" aria-hidden="true">
+        <svg
+            viewBox="0 0 24 24"
+            width="36"
+            height="36"
+            fill="currentColor"
+        >
+            <path d="M12 .9a11.1 11.1 0 0 0-3.51 21.63c.55.1.76-.24.76-.54v-2.1c-3.1.67-3.75-1.31-3.75-1.31-.5-1.28-1.23-1.62-1.23-1.62-1.01-.69.08-.68.08-.68 1.12.08 1.71 1.15 1.71 1.15 1 1.7 2.62 1.2 3.26.91.1-.71.39-1.2.71-1.48-2.47-.28-5.07-1.24-5.07-5.5 0-1.22.44-2.21 1.15-2.99-.12-.28-.5-1.42.11-2.95 0 0 .94-.3 3.05 1.14a10.6 10.6 0 0 1 5.55 0c2.11-1.44 3.04-1.14 3.04-1.14.61 1.53.23 2.67.12 2.95.72.78 1.15 1.77 1.15 2.99 0 4.27-2.61 5.21-5.09 5.49.4.34.75 1.02.75 2.06v3.07c0 .3.2.65.77.54A11.1 11.1 0 0 0 12 .9Z"/>
+        </svg>
+    </div>
+
+    <h2 id="github-dialog-title">
+        Sign in with GitHub
+    </h2>
+
+    <p>
+        Connect your GitHub account to quickly explore your
+        public repositories and generate automated analytics.
+    </p>
+
+    <a
+        class="dialog-action"
+        href="https://github.com/login"
+        target="_blank"
+        rel="noopener noreferrer"
+    >
+        <span>Sign in</span>
+
+        <svg
+            viewBox="0 0 24 24"
+            width="20"
+            height="20"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+        >
+            <path d="M10 17l5-5-5-5"/>
+            <path d="M15 12H3"/>
+            <path d="M12 3h6a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-6"/>
+        </svg>
+    </a>
+</dialog>
+</body>
+</html>
