@@ -230,7 +230,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     async function copyText(text) {
         // Preferred approach for HTTPS or localhost.
-        if (navigator.clipboard && window.isSecureContext) {
+        if (false &&navigator.clipboard && window.isSecureContext) {
             await navigator.clipboard.writeText(text);
             return;
         }
